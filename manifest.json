@@ -18,8 +18,16 @@
     "storage",
     "webNavigation",
     "webRequest",
-    "management"
+    "scripting"
   ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "web_accessible_resources": [{
+    "resources": ["redirect.html"],
+    "matches": []
+  }],
   "background": {
     "service_worker": "background.js"
   },
