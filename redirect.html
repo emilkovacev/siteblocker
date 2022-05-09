@@ -1,16 +1,26 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>siteblocker</title>
     <style>
         body {
-            width: 300px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                height: 80vh;
+        }
+        h1 {
+                font-size: 100px;
+        }
+        em {
+                font-size: 60px;
         }
     </style>
+
   </head>
   <body>
-      <h1 id="redirect-message"></h1>
-      <h1>Allowed pages</h1>
-      <ul id="allowed-pages"></ul>
-      <script src="background.js"></script>
+      <h1 id="page-not-allowed">Page Not Allowed</h1>
+      <em>(Be productive, read a book!)</em>
   </body>
 </html>

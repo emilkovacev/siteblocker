@@ -4,10 +4,7 @@
   "description": "Blocks user from being able to log into specified sites",
   "version": "1.0",
   "manifest_version": 3,
-
-  "action": {
-    "default_popup": "popup.html"
-  },
+ 
   "icons": {
     "16": "waluigi.png",
     "48": "waluigi.png",
