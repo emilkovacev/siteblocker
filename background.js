@@ -16,7 +16,6 @@ const blocked = [
 function scan_url(details) {
     chrome.storage.sync.get(["blocked"], function (results) {
         const url = details.url;
-        const tabId = details.tabId;
         for (let regex of unblocked) {
             if (url.match(regex)) {
                 console.log(`allowed ${url}`);

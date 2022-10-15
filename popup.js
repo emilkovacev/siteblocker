@@ -7,11 +7,17 @@
 
 // convert array of blocked urls to html string
 function blocked_to_html(blocked) {
-    const blocked_map = blocked.map((b) => {
-        return `<div class="blocked-item">${b}</div>`
-    })
+    blocked_list.innerHTML = ""  // clear blocked list
 
-    return blocked_map.join("")
+    // repopulate blocked list
+    blocked.forEach((b) => {
+        const node = document.createElement("div")
+        const url = document.createTextNode(b)
+        node.appendChild(url)
+        node.className = "blocked-item"
+        node.addEventListener("click", () => removeBlocked(node))
+        blocked_list.appendChild(node)
+    })
 }
 
 // add blocked url to sync storage
@@ -21,24 +27,30 @@ function blockSite() {
         return;
     }
  
-    chrome.storage.sync.clear();
     chrome.storage.sync.get(["blocked"], function (results) {
 
         if (results.blocked == undefined) {
             results.blocked = [text]
             chrome.storage.sync.set({ "blocked": [text] })
-        } else {
+        } 
+
+        else if (text in results.blocked) {
+            block_status.innerHTML = `<p>${text} already blocked!</p>`
+        }
+
+        else {
             results.blocked.push(text);
             chrome.storage.sync.set({ "blocked": results.blocked })
         }
         block_status.innerHTML = `<p>Blocked ${text}</p>`
-        blocked_list.innerHTML = blocked_to_html(results.blocked)
+        blocked_to_html(results.blocked)
+        url_input.innerHTML = ""
     });
 }
 
 function loadSite() {
     chrome.storage.sync.get(["blocked"], function (results) {
-        blocked_list.innerHTML = blocked_to_html(results.blocked)
+        blocked_to_html(results.blocked)
     });
 }
 
@@ -53,9 +65,10 @@ function removeBlocked(blocked) {
                 return name != elem
             });
             chrome.storage.sync.set({ "blocked": new_blocked })
+            block_status.innerHTML = `<p>Unblocked ${name}</p>`
+            blocked_to_html(new_blocked)
+            loadSite()
         }
-        block_status.innerHTML = `<p>Unblocked ${name}</p>`
-        blocked_list.innerHTML = blocked_to_html(new_blocked)
     });
 }
 
