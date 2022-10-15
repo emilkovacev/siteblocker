@@ -32,19 +32,20 @@ function blockSite() {
         if (results.blocked == undefined) {
             results.blocked = [text]
             chrome.storage.sync.set({ "blocked": [text] })
+            block_status.innerHTML = `<p>Blocked ${text}</p>`
         } 
 
-        else if (text in results.blocked) {
+        else if (results.blocked.includes(text)) {
             block_status.innerHTML = `<p>${text} already blocked!</p>`
         }
 
         else {
             results.blocked.push(text);
             chrome.storage.sync.set({ "blocked": results.blocked })
+            block_status.innerHTML = `<p>Blocked ${text}</p>`
         }
-        block_status.innerHTML = `<p>Blocked ${text}</p>`
         blocked_to_html(results.blocked)
-        url_input.innerHTML = ""
+        url_input.value = ""
     });
 }
 
