@@ -1,10 +1,28 @@
 # Siteblocker
 *The ultimate site-blocking chrome extension – and completely free to use!*
 
-### About
+## About
 Siteblocker uses the power of regex to block any sites you need in chrome.
 Perfect for keeping your own productivity in check, it immediately re-directs
 any websites you specify to a default message screen.
+
+
+## Install
+
+To install this chrome extension on your browser, follow these steps:
+
+1. Download the source code onto your local computer
+
+2. Open the chrome extensions page (Manage Extensions)
+
+3. Enable `Developer Mode` at the top-right of the screen
+
+4. On the left, click `Load Unpacked`, and select the folder you downloaded earlier. Click `Open`
+
+5. Done! You should now have a working install of the Siteblocker extension!
+
+
+## Features
 
 ### Blocking Websites
 ![Siteblocker-gif-1](https://user-images.githubusercontent.com/56481968/195975181-6c74610f-ed2e-439e-9526-ec2ab5ed9e49.gif)
