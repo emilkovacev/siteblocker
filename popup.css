@@ -1,0 +1,31 @@
+body {
+    min-width: 500px;
+    padding: 20px;
+    font-size: 18px;
+}
+
+input#url-input {
+    width: calc(100%);
+    padding: 4px;
+}
+
+div#block-button { 
+    margin-bottom: 10px;
+}
+
+div#blocked {
+    font-size: 12px;
+    width: 100%;
+}
+
+div.blocked-item {
+    background-color: #eaeaea;
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+}
+
+div.blocked-item:hover {
+    background-color: red;
+    cursor: pointer;
+}
