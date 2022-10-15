@@ -81,3 +81,9 @@ blocked_list.addEventListener("change", () => {
     ))
 })
 
+url_input.addEventListener("keypress", (e) => {
+    if (e.key == "Enter") {
+        e.preventDefault()
+        button.click()
+    }
+})
