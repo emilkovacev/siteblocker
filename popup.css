@@ -13,7 +13,7 @@ div#block-button {
     margin-bottom: 10px;
 }
 
-div#blocked {
+div.list {
     font-size: 12px;
     width: 100%;
 }
